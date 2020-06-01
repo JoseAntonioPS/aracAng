@@ -1,0 +1,57 @@
+html{
+    background-image: url("src\assets\Fondo2.png");
+    padding: 50%;
+}
+.container{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form-control{
+    background-color: black;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    height: 25px;
+    width: 245px;
+}
+.B1{
+    background-image: url("src\assets\B1.png");
+    height: 95px;
+    width: 203px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+.B2{
+    background-image: url("src\assets\B2.png");
+    height: 95px;
+    width: 203px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+}
+.B3{
+    padding: 7%;
+    margin-left: 25px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 25%;
+    color: white;
+    border: none;
+}
+button:hover {
+    opacity: 0.8;
+  }
+
+.grid{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    background-image: url("src\assets\Fondo2.png");
+    height: 770px;
+}
+
+.grid2{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+button{
+    margin-top: 10%;
+    margin-left: 4%;
+    padding: 10%;
+}

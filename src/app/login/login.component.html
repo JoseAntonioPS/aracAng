@@ -1,0 +1,53 @@
+<form *ngIf="!isLoggedIn"
+name="form"
+(ngSubmit)="f.form.valid && onSubmit()"
+#f="ngForm"
+novalidate>
+    <div class="imgcontainer">
+      <img src="assets\Avatar.png" alt="Avatar" class="avatar">
+    </div>
+  
+    <div class="container">
+      <label for="username"><b>Username</b></label>
+      <input type="text" 
+      placeholder="Enter Username" 
+      name="username" 
+      [(ngModel)]="form.username"
+      required
+      #username="ngModel">
+      <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+        <div *ngIf="username.errors.required">Username is required</div>
+      </div>
+ 
+      <label for="password"><b>Password</b></label>
+      <input type="password" 
+      placeholder="Enter Password" 
+      name="password" 
+      [(ngModel)]="form.password"
+      required
+      minlength="6"
+      #password="ngModel">
+
+      <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">
+          Password must be at least 6 characters
+        </div>
+    </div>
+  
+      <button type="submit">Login</button>
+      <!-- <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label> -->
+    </div>
+  
+    <div class="container" style="background-color:#f2ffac">
+      <button type="button" class="cancelbtn">
+        <a routerLink="/home" style="text-decoration: none">Cancel</a>
+      </button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+  <div class="alert alert-success" *ngIf="isLoggedIn">
+    Logged in as {{ roles }}.
+  </div>

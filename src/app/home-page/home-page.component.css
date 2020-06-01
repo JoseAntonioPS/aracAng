@@ -1,0 +1,17 @@
+.info{
+    background-color: rgba(255, 255, 133, 0.685);
+}
+.block{
+    display: block;
+    margin-left: 33%;
+    padding: 17%;
+    width: 1px;
+    height: 220px;
+    background-color: rgba(0, 0, 0, 0.336);
+    background-image: url("src/assets/Portada.png");
+    background-size: cover;
+}
+
+h4{
+    color: rgb(158, 84, 0);
+}

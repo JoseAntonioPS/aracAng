@@ -1,0 +1,74 @@
+<div class="imgcontainer">
+  <img src="assets\Avatar.png" alt="Avatar" class="img.avatar">
+</div>
+
+<form
+*ngIf="!isSuccessful"
+name="form"
+(ngSubmit)="f.form.valid && onSubmit()"
+#f="ngForm"
+novalidate> 
+  
+    <div class="container">
+      <label for="username"><b>Username</b></label>
+      <input type="text"
+      class="form-control"
+      placeholder="Enter Username" 
+      name="username" 
+      [(ngModel)]="form.username"
+      required
+      minlength="3"
+      maxlength="20"
+      #username="ngModel">
+      <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+        <div *ngIf="username.errors.required">Username is required</div>
+      </div>
+
+      <label for="email"><b>Email</b></label>
+      <input type="email"
+      class="form-control"
+      placeholder="Enter Email"
+      name="email"
+      [(ngModel)]="form.email"
+      required
+      email
+      #email="ngModel">
+
+      <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">
+          Email must be a valid email address
+        </div>
+      </div>
+      
+      <label for="password"><b>Password</b></label>
+      <input type="password"
+      class="form-control"
+      placeholder="Enter Password" 
+      name="password" 
+      [(ngModel)]="form.password"
+      required
+      minlength="6"
+      #password="ngModel">
+
+      <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">
+          Password must be at least 6 characters
+        </div>
+    </div>
+  
+      <button type="submit">Register</button>
+      <button type="button" class="cancelbtn">
+        <a routerLink="/home" style="text-decoration: none">Cancel</a>
+      </button>
+    </div>
+
+    <div *ngIf="f.submitted && isSignUpFailed">
+      Signup failed!<br />{{ errorMessage }}
+    </div>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  
+  </form>

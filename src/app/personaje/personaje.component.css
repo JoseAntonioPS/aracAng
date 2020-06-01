@@ -1,0 +1,88 @@
+@-webkit-keyframes spin {
+    from {-webkit-transform:rotateY(0); }
+    to {-webkit-transform:rotateY(-360deg);}
+  }
+
+  .grid{
+      display: grid;
+      grid-row: 1fr 1fr;
+  }
+  
+  .wrapper {
+  margin: -50px auto 0 auto;
+   
+    -webkit-perspective:2000;
+    -webkit-perspective-origin:50% 50px;
+  }
+  
+  .shape {
+    margin:100px auto;
+    height:400px;
+    width:100px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-animation: spin 45s infinite linear;
+    
+   }
+  
+  .plane:hover {
+    background:rgba(0, 0, 0, 0.733);
+  }
+  
+  .plane {
+    position:absolute;
+    width:300px;
+    height:310px;
+    background:rgba(0,0,0,0.6);
+    color:#fff;
+    font-size:9em;
+    text-align:center;
+  }
+  
+  .plane p {
+    position: absolute;
+    margin: 280px 0px 0px -80px;
+    display:none;
+    color:#fff;
+    background:#333;
+    font-size:30px;
+    padding:15px;
+    
+    
+    
+  }
+  
+  .plane:hover p {
+  display:inline;
+  }
+  
+  .p1 {
+  -webkit-transform: translateZ(600px);
+    }
+  
+  .p2 {
+  -webkit-transform: rotateY(45deg) translateZ(600px);
+  }
+  
+  .p3 {
+  -webkit-transform: rotateY(90deg) translateZ(600px);
+  }
+  
+  .p4 {
+  -webkit-transform: rotateY(135deg) translateZ(600px);
+  }
+  
+  .p5 {
+  -webkit-transform: rotateY(180deg) translateZ(600px);
+  }
+  
+  .p6 {
+  -webkit-transform: rotateY(225deg) translateZ(600px);
+  }
+  
+  .p7 {
+  -webkit-transform: rotateY(270deg) translateZ(600px);
+  }
+  
+  .p8 {
+  -webkit-transform: rotateY(315deg) translateZ(600px);
+  }

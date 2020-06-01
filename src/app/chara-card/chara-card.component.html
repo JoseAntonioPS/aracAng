@@ -1,0 +1,56 @@
+<div class="grid">
+<div [ngStyle]="{'background-image':'url('+ruta+')'}"></div>
+<div>
+    <div class="grid2">
+        <div>
+            <button *ngIf="card" (click)="enableUpload()" class="B1"></button>
+
+            <form
+            *ngIf="up"
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm"
+            novalidate> 
+  
+             <div class="container">
+                 <label for="name"><b>Name of the Design</b></label>
+                 <input type="text"
+                        class="form-control"
+                        placeholder="Enter name" 
+                        name="name" 
+                        [(ngModel)]="form.name"
+                        required
+                        #name="ngModel">
+                <div class="alert-danger" *ngIf="f.submitted && name.invalid">
+                    <div *ngIf="name.errors.required">name is required</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <label for="imagen"><b>Image´s url</b></label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Enter url" 
+                       name="imagen" 
+                       [(ngModel)]="form.imagen"
+                       required
+                       #imagen="ngModel">
+               <div class="alert-danger" *ngIf="f.submitted && imagen.invalid">
+                   <div *ngIf="imagen.errors.required">url is required</div>
+               </div>
+               <div *ngIf="di">Design added</div>
+               <button type="submit" class="B3">Upload</button>
+                <button type="button" class="B3" (click)="disableUpload()">Cancel</button>
+
+           </div>
+
+            </form>
+
+
+        </div>
+        <div>
+            <button *ngIf="card" class="B2"  (click)="capture(card)"  routerLink="designs"></button>
+        </div>
+    </div>
+</div>
+</div>

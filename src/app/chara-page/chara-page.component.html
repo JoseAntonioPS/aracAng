@@ -1,0 +1,10 @@
+<main>
+  <h2>Characters</h2>
+
+  <div class = "lista">
+    <div (click)="capture(personaje)" class= "block" *ngFor="let personaje of personajeList" [ngStyle]="{'background-image':'url(assets/Avatar'+personaje.imagen+')'}" href="chara/" routerLink="chara/{{personaje.name}}"></div>
+    </div>
+</main>
+
+
+

@@ -1,0 +1,16 @@
+<div>
+    <h2 *ngIf="public">
+        Designs  
+    </h2>
+    <h2 *ngIf="onlyOne">
+        {{perTemp.name}}´s Designs  
+    </h2>
+    <h4 *ngIf="onlyOne">
+      {{perTemp.descripcion}}  
+    </h4>
+
+</div>
+
+<div class = "lista">
+    <div (click)="capture(design)" class= "block" *ngFor="let design of list" [ngStyle]="{'background-image':'url('+design.imagen+')'}" href="design/" routerLink="{{design.name}}">
+</div>

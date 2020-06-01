@@ -1,0 +1,11 @@
+.block{
+    display:inline-block;
+    background-color: rgba(0, 0, 0, 0.377);
+    background-size: cover;
+    height: 900px;
+    width: 55%;
+    padding: 10%;
+    border-style:solid;
+    border-color: darkorange;
+    margin-left: 13%;
+}

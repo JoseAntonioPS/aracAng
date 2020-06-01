@@ -1,0 +1,80 @@
+<div class="areaP" *ngIf="isLoggedIn">
+    <header class="cab">
+        <h2> {{username}}´s Profile</h2>
+    </header>
+    <main class="tit">
+        <h3>Your´s Designs</h3>
+    </main>
+    <main class="des">
+        <div class = "lista">
+            <div (click)="capture(designU)" class= "block" *ngFor="let designU of list" [ngStyle]="{'background-image':'url('+designU.imagen+')'}" href="design/" routerLink="design/{{designU.name}}">
+             
+            </div>
+        </div>
+    </main>
+    <main class="opt">
+        <div><h3>Options</h3></div>
+        <div>
+            <button type="button" (click)="enableEmail()">Change Email</button>
+            <button type="button" (click)="enablePassword()">Change Password</button>
+            <form
+            *ngIf="eE"
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm"
+            novalidate>
+                <input type="email"
+                class="form-control"
+                placeholder="Enter Email"
+                name="email"
+                [(ngModel)]="form.email"
+                required
+                email
+                #email="ngModel">
+
+                <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+                    <div *ngIf="email.errors.required">Email is required</div>
+                    <div *ngIf="email.errors.email">
+                      Email must be a valid email address
+                    </div>
+                  </div>
+                <div *ngIf="di">
+                    <a class="alert-danger">Email Updated</a>
+                </div>
+                <button type="submit" class="button2">Update</button>
+                <button type="button" class="cancelbtn" (click)="disableEmail()">Cancel</button>
+            </form>
+
+            <form
+            *ngIf="eP && !eE"
+            name="form"
+            (ngSubmit)="f.form.valid && onSubmit()"
+            #f="ngForm"
+            novalidate>
+                <input type="password"
+                class="form-control"
+                placeholder="Enter Password"
+                name="password"
+                [(ngModel)]="form.password"
+                required
+                minlength="6"
+                password
+                #password="ngModel"
+                >
+
+                <div *ngIf="f.submitted && password.invalid">
+                    <div *ngIf="password.errors.required">
+                        <a class="alert-danger">Password is required</a>
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                        <a class="alert-danger">Password must be at least 6 characters</a>
+                    </div>
+                </div>
+
+                <div *ngIf="di2">Password Updated</div>
+                <button type="submit" class="button2">Update</button>
+                <button type="button" class="cancelbtn" (click)="disablePassword()">Cancel</button>
+            </form>
+        </div>
+    </main>
+</div>
